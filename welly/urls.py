@@ -73,6 +73,7 @@ urlpatterns = [
 
 
     path('page-login/',welly_views.page_login,name="page-login"),
+    path('page-logout/',welly_views.page_logout,name="page-logout"),
     path('page-register/',welly_views.page_register,name="page-register"),
     path('page-forgot-password/',welly_views.page_forgot_password,name="page-forgot-password"),
     path('page-lock-screen/',welly_views.page_lock_screen,name="page-lock-screen"),
