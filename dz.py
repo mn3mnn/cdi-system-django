@@ -36,6 +36,11 @@ dz_array = {
 							f"{folder_name}/vendor/chartist/css/chartist.min.css",
 							f"{folder_name}/vendor/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css",	
 						],
+                        "work_list": [
+							f"{folder_name}/vendor/jqvmap/css/jqvmap.min.css",
+							f"{folder_name}/vendor/chartist/css/chartist.min.css",
+							f"{folder_name}/vendor/datatables/css/jquery.dataTables.min.css",
+						],
 						"patient": [
 							f"{folder_name}/vendor/jqvmap/css/jqvmap.min.css",
 							f"{folder_name}/vendor/chartist/css/chartist.min.css",
@@ -197,6 +202,14 @@ dz_array = {
 							f"{folder_name}/vendor/peity/jquery.peity.min.js",
 							f"{folder_name}/vendor/apexchart/apexchart.js",
 							f"{folder_name}/js/dashboard/dashboard-1.js",
+						],
+                        "work_list": [
+							f"{folder_name}/vendor/chart-js/chart.bundle.min.js",
+							f"{folder_name}/vendor/datatables/js/jquery.dataTables.min.js",
+						],
+                        "statistics": [
+							f"{folder_name}/vendor/chart-js/chart.bundle.min.js",
+							f"{folder_name}/js/plugins-init/chartjs-init.js",
 						],
 						"patient": [
 							f"{folder_name}/vendor/chart-js/chart.bundle.min.js",

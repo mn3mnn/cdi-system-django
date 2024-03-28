@@ -7,6 +7,17 @@ def index(request):
     }
     return render(request,'welly/index.html',context)
 
+def statistics(request):
+    context={
+        "page_title":"Statistics"
+    }
+    return render(request,'welly/statistics.html',context)
+
+def work_list(request):
+    context={
+        "page_title":"Work List"
+    }
+    return render(request,'welly/work-list.html',context)
 
 def patient(request):
     context={
@@ -517,17 +528,3 @@ def page_error_500(request):
 
 def page_error_503(request):
     return render(request,'503.html')
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
