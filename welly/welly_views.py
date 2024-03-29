@@ -1,18 +1,23 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User, Group
+from django.contrib.auth import authenticate, login, logout
 
-
+@login_required(login_url='welly:page-login')
 def index(request):
     context={
         "page_title":"Dashboard"
     }
     return render(request,'welly/index.html',context)
 
+@login_required(login_url='welly:page-login')
 def statistics(request):
     context={
         "page_title":"Statistics"
     }
     return render(request,'welly/statistics.html',context)
 
+@login_required(login_url='welly:page-login')
 def work_list(request):
     context={
         "page_title":"Work List"
@@ -512,7 +517,22 @@ def page_register(request):
     return render(request,'welly/pages/page-register.html')
 
 def page_login(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        print(username,password)
+        user = authenticate(username=username,password=password)
+        print(user)
+        if user is not None:
+            login(request,user)
+            print('login successful')
+            return redirect('welly:index')
+
     return render(request,'welly/pages/page-login.html')
+
+def page_logout(request):
+    logout(request)
+    return redirect('welly:page-login')
 
 def page_forgot_password(request):
     return render(request,'welly/pages/page-forgot-password.html')
