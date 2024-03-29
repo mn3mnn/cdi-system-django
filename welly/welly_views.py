@@ -24,6 +24,18 @@ def work_list(request):
     }
     return render(request,'welly/work-list.html',context)
 
+def details(request):
+    context={
+        "page_title":"Details"
+    }
+    return render(request,'welly/details.html',context)
+
+def notifications(request):
+    context={
+        "page_title":"Notifications"
+    }
+    return render(request,'welly/notifications.html',context)
+
 def patient(request):
     context={
         "page_title":"Patient"

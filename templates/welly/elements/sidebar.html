@@ -2,12 +2,8 @@
 <div class="deznav">
   <div class="deznav-scroll">
     <ul class="metismenu" id="menu">
-      <li>
-        <a
-          class="has-arrow ai-icon"
-          href="javascript:void(0);"
-          aria-expanded="false"
-        >
+      {% comment %} <li>
+        <a class="has-arrow ai-icon" href="javascript:void(0);" aria-expanded="false">
           <i class="flaticon-381-networking"></i>
           <span class="nav-text">Dashboard</span>
         </a>
@@ -21,33 +17,33 @@
           <li><a href="{% url 'welly:doctor-details' %}">Doctor Details</a></li>
           <li><a href="{% url 'welly:reviews' %}">Reviews</a></li>
         </ul>
-      </li>
+      </li> {% endcomment %}
       <li>
-        <a
-          href="{% url 'welly:statistics' %}"
-          class="ai-icon"
-          aria-expanded="false"
-        >
-          <i class="flaticon-381-settings-2"></i>
+        <a href="{% url 'welly:statistics' %}" class="ai-icon" aria-expanded="false">
+          <i class="fas fa-chart-line"></i>
           <span class="nav-text">Statistics</span>
         </a>
       </li>
       <li>
-        <a
-          href="{% url 'welly:work-list' %}"
-          class="ai-icon"
-          aria-expanded="false"
-        >
-          <i class="flaticon-381-settings-2"></i>
+        <a href="{% url 'welly:work-list' %}" class="ai-icon" aria-expanded="false">
+          <i class="flaticon-381-notepad"></i>
           <span class="nav-text">Work List</span>
         </a>
       </li>
       <li>
-        <a
-          class="has-arrow ai-icon"
-          href="javascript:void(0);"
-          aria-expanded="false"
-        >
+        <a href="{% url 'welly:details' %}" class="ai-icon" aria-expanded="false">
+          <i class="flaticon-381-settings-2"></i>
+          <span class="nav-text">Details</span>
+        </a>
+      </li>
+      <li>
+        <a href="{% url 'welly:notifications' %}" class="ai-icon" aria-expanded="false">
+          <i class="flaticon-381-notification"></i>
+          <span class="nav-text">Notifications</span>
+        </a>
+      </li>
+      {% comment %} <li>
+        <a class="has-arrow ai-icon" href="javascript:void(0);" aria-expanded="false">
           <i class="flaticon-381-television"></i>
           <span class="nav-text">Apps</span>
         </a>
@@ -55,12 +51,7 @@
           <li><a href="{% url 'welly:app-profile' %}">Profile</a></li>
           <li><a href="{% url 'welly:post-details' %}">Post Details</a></li>
           <li>
-            <a
-              class="has-arrow"
-              href="javascript:void(0);"
-              aria-expanded="false"
-              >Email</a
-            >
+            <a class="has-arrow" href="javascript:void(0);" aria-expanded="false">Email</a>
             <ul aria-expanded="false">
               <li><a href="{% url 'welly:email-compose' %}">Compose</a></li>
               <li><a href="{% url 'welly:email-inbox' %}">Inbox</a></li>
@@ -69,12 +60,7 @@
           </li>
           <li><a href="{% url 'welly:app-calendar' %}">Calendar</a></li>
           <li>
-            <a
-              class="has-arrow"
-              href="javascript:void(0);"
-              aria-expanded="false"
-              >Shop</a
-            >
+            <a class="has-arrow" href="javascript:void(0);" aria-expanded="false">Shop</a>
             <ul aria-expanded="false">
               <li>
                 <a href="{% url 'welly:ecom-product-grid' %}">Product Grid</a>
@@ -83,9 +69,7 @@
                 <a href="{% url 'welly:ecom-product-list' %}">Product List</a>
               </li>
               <li>
-                <a href="{% url 'welly:ecom-product-detail' %}"
-                  >Product Details</a
-                >
+                <a href="{% url 'welly:ecom-product-detail' %}">Product Details</a>
               </li>
               <li><a href="{% url 'welly:ecom-product-order' %}">Order</a></li>
               <li><a href="{% url 'welly:ecom-checkout' %}">Checkout</a></li>
@@ -94,13 +78,9 @@
             </ul>
           </li>
         </ul>
-      </li>
-      <li>
-        <a
-          class="has-arrow ai-icon"
-          href="javascript:void(0);"
-          aria-expanded="false"
-        >
+      </li> {% endcomment %}
+      {% comment %} <li>
+        <a class="has-arrow ai-icon" href="javascript:void(0);" aria-expanded="false">
           <i class="flaticon-381-controls-3"></i>
           <span class="nav-text">Charts</span>
         </a>
@@ -112,17 +92,14 @@
           <li><a href="{% url 'welly:chart-sparkline' %}">Sparkline</a></li>
           <li><a href="{% url 'welly:chart-peity' %}">Peity</a></li>
         </ul>
-      </li>
-      <li>
-        <a
-          class="has-arrow ai-icon"
-          href="javascript:void(0);"
-          aria-expanded="false"
-        >
+      </li> {% endcomment %}
+      {% comment %} <li>
+        <a class="has-arrow ai-icon" href="javascript:void(0);" aria-expanded="false">
           <i class="flaticon-381-internet"></i>
           <span class="nav-text">Bootstrap</span>
         </a>
         <ul aria-expanded="false">
+          <li><a href="{% url 'welly:uc-select2' %}">Select 2</a></li>
           <li><a href="{% url 'welly:ui-accordion' %}">Accordion</a></li>
           <li><a href="{% url 'welly:ui-alert' %}">Alert</a></li>
           <li><a href="{% url 'welly:ui-badge' %}">Badge</a></li>
@@ -141,18 +118,13 @@
           <li><a href="{% url 'welly:ui-pagination' %}">Pagination</a></li>
           <li><a href="{% url 'welly:ui-grid' %}">Grid</a></li>
         </ul>
-      </li>
-      <li>
-        <a
-          class="has-arrow ai-icon"
-          href="javascript:void(0);"
-          aria-expanded="false"
-        >
+      </li> {% endcomment %}
+      {% comment %} <li>
+        <a class="has-arrow ai-icon" href="javascript:void(0);" aria-expanded="false">
           <i class="flaticon-381-heart"></i>
           <span class="nav-text">Plugins</span>
         </a>
         <ul aria-expanded="false">
-          <li><a href="{% url 'welly:uc-select2' %}">Select 2</a></li>
           <li><a href="{% url 'welly:uc-nestable' %}">Nestable</a></li>
           <li><a href="{% url 'welly:uc-noui-slider' %}">Noui Slider</a></li>
           <li><a href="{% url 'welly:uc-sweetalert' %}">Sweet Alert</a></li>
@@ -160,23 +132,15 @@
           <li><a href="{% url 'welly:map-jqvmap' %}">Jqv Map</a></li>
           <li><a href="{% url 'welly:uc-lightgallery' %}">Light Gallery</a></li>
         </ul>
-      </li>
-      <li>
-        <a
-          href="{% url 'welly:widget-basic' %}"
-          class="ai-icon"
-          aria-expanded="false"
-        >
+      </li> {% endcomment %}
+      {% comment %} <li>
+        <a href="{% url 'welly:widget-basic' %}" class="ai-icon" aria-expanded="false">
           <i class="flaticon-381-settings-2"></i>
           <span class="nav-text">Widget</span>
         </a>
-      </li>
-      <li>
-        <a
-          class="has-arrow ai-icon"
-          href="javascript:void(0);"
-          aria-expanded="false"
-        >
+      </li> {% endcomment %}
+      {% comment %} <li>
+        <a class="has-arrow ai-icon" href="javascript:void(0);" aria-expanded="false">
           <i class="flaticon-381-notepad"></i>
           <span class="nav-text">Forms</span>
         </a>
@@ -189,13 +153,9 @@
             <a href="{% url 'welly:form-validation' %}">Jquery Validate</a>
           </li>
         </ul>
-      </li>
-      <li>
-        <a
-          class="has-arrow ai-icon"
-          href="javascript:void(0);"
-          aria-expanded="false"
-        >
+      </li> {% endcomment %}
+      {% comment %} <li>
+        <a class="has-arrow ai-icon" href="javascript:void(0);" aria-expanded="false">
           <i class="flaticon-381-network"></i>
           <span class="nav-text">Table</span>
         </a>
@@ -207,26 +167,17 @@
             <a href="{% url 'welly:table-datatable-basic' %}">Datatable</a>
           </li>
         </ul>
-      </li>
+      </li> {% endcomment %}
       <li>
-        <a
-          class="has-arrow ai-icon"
-          href="javascript:void(0);"
-          aria-expanded="false"
-        >
+        <a class="has-arrow ai-icon" href="javascript:void(0);" aria-expanded="false">
           <i class="flaticon-381-layer-1"></i>
           <span class="nav-text">Pages</span>
         </a>
         <ul aria-expanded="false">
           <li><a href="{% url 'welly:page-register' %}">Register</a></li>
           <li><a href="{% url 'welly:page-login' %}">Login</a></li>
-          <li>
-            <a
-              class="has-arrow"
-              href="javascript:void(0);"
-              aria-expanded="false"
-              >Error</a
-            >
+          {% comment %} <li>
+            <a class="has-arrow" href="javascript:void(0);" aria-expanded="false">Error</a>
             <ul aria-expanded="false">
               <li><a href="{% url 'welly:page-error-400' %}">Error 400</a></li>
               <li><a href="{% url 'welly:page-error-403' %}">Error 403</a></li>
@@ -234,19 +185,19 @@
               <li><a href="{% url 'welly:page-error-500' %}">Error 500</a></li>
               <li><a href="{% url 'welly:page-error-503' %}">Error 503</a></li>
             </ul>
-          </li>
+          </li> {% endcomment %}
           <li><a href="{% url 'welly:page-lock-screen' %}">Lock Screen</a></li>
-          <li><a href="{% url 'welly:page-empty' %}">Empty Page</a></li>
+          {% comment %} <li><a href="{% url 'welly:page-empty' %}">Empty Page</a></li> {% endcomment %}
         </ul>
       </li>
     </ul>
 
-    <div class="copyright">
+    {% comment %} <div class="copyright">
       <p>
         <strong>Welly Hospital Admin Template</strong> © 2024 All Rights
         Reserved
       </p>
       <p>Made with <span class="heart"></span> by DexignZone</p>
-    </div>
+    </div> {% endcomment %}
   </div>
 </div>
