@@ -29711,7 +29711,9 @@ table.dataTable.no-footer {
       background: transparent !important; }
 
 table.dataTable.display tbody tr:hover {
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); }
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); 
+  cursor: pointer;
+}
   table.dataTable.display tbody tr:hover td {
     background: transparent !important; }
 
