@@ -44,6 +44,9 @@ dz_array = {
 							f"{folder_name}/vendor/datatables/css/jquery.dataTables.min.css",
 						],
                         "details": [
+                            f"{folder_name}/vendor/jqvmap/css/jqvmap.min.css",
+							f"{folder_name}/vendor/chartist/css/chartist.min.css",
+							f"{folder_name}/vendor/datatables/css/jquery.dataTables.min.css",
 						],
                         "notifications": [
 						],
@@ -219,6 +222,8 @@ dz_array = {
 							f"{folder_name}/vendor/datatables/js/jquery.dataTables.min.js",
 						],
                         "details": [
+                            f"{folder_name}/vendor/chart-js/chart.bundle.min.js",
+							f"{folder_name}/vendor/datatables/js/jquery.dataTables.min.js",
 						],
                         "notifications": [
 						],

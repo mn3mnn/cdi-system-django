@@ -59,17 +59,17 @@
 										<label class="form-check-label" for="checkAll"></label>
 									</div>
 								</th>
-								<th>Patient ID</th>
-								<th>Patient Name</th>
-								<th>Encounter Date</th>
-								<th>Assignment Date</th>
+								<th>PID</th>
+								<th>PName</th>
+								<th>Encounter</th>
+								<th>Assignment</th>
 								<th>Open Queries</th>
-								<th>System Priority</th>
-								<th>Manual Priority</th>
+								<th>S Priority</th>
+								<th>M Priority</th>
 								<th>Status</th>
 								<th>Physician</th>
 								<th>Speciality</th>
-								<th class="text-end">Facility</th>
+								<th>Facility</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -130,10 +130,10 @@
 {% endblock %}
 {% block additional_js %}
 <script>
-	$(document).ready(function() {
-		$("#example5 tbody tr").on("click", function() {
+	$(document).ready(function () {
+		$("#example5 tbody tr").on("click", function () {
 			var href = $(this).data("href");
-			if(href) {
+			if (href) {
 				window.location.href = href;
 			}
 		});
@@ -144,7 +144,7 @@
 				select: true,
 				//info: false,         
 				lengthChange: true
-	
+
 			});
 			$('#example tbody').on('click', 'tr', function () {
 				var data = table.row(this).data();
