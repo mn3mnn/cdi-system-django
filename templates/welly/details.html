@@ -68,6 +68,10 @@
 		border-radius: 30px;
 		box-shadow: 0 0 10px rgba(0,0,0,0.1);
 	}
+
+	.fs-20 {
+		font-size: 20px;
+	}
 </style>
 {% endblock %}
 
@@ -99,7 +103,7 @@
 							<p class="mb-1">System Priority: <strong><span class="badge badge-danger rounded">1</span></strong>
 							</p>
 							<p class="mb-1">Manual Priority: <strong><span class="text-success fw-bold">Med</span></strong></p>
-							<p class="mb-1">Flags: <i class="fa-solid fa-ban" style="color: red; font-size: 20px;"></i><i class="ms-2 fa-solid fa-shield-virus" style="color: red; font-size: 20px;"></i></p>
+							<p class="mb-1">Flags: <i class="fa-solid fa-ban text-danger fs-20"></i><i class="ms-2 fa-solid fa-shield-virus text-danger fs-20"></i></p>
 						</div>
 						<div class="col-md-4 col-sm-12">
 							<p class="mb-1">Status: <strong>Re Rev</strong></p>
@@ -410,7 +414,7 @@
 																							<tbody>
 																								<tr>
 																									<td>101</td>
-																									<td>High</td>
+																									<td class="text-center"><i class="fa-solid fa-ban text-danger fs-20"></i></td>
 																									<td>Lorem ipsum
 																										dolor sit amet.
 																									</td>
@@ -420,7 +424,7 @@
 																								</tr>
 																								<tr>
 																									<td>102</td>
-																									<td>Low</td>
+																									<td class="text-center"><i class="fa-solid fa-shield-virus text-danger fs-20"></i></td>
 																									<td>Lorem ipsum
 																										dolor sit amet.
 																									</td>
