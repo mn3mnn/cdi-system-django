@@ -63,6 +63,11 @@
 		visibility: hidden;
 		transition: opacity 0.5s, visibility 0.5s;
 	}
+
+	.details-container {
+		border-radius: 30px;
+		box-shadow: 0 0 10px rgba(0,0,0,0.1);
+	}
 </style>
 {% endblock %}
 
@@ -73,7 +78,7 @@
 		<div class="row">
 			<div class="col-12">
 				<!-- Patient Details Card -->
-				<div class="row card-body bg-white mb-5">
+				<div class="row card-body bg-white mb-5 details-container">
 					<div class="row mb-3">
 						<div class="col-md-6 col-sm-12">
 							<h3 class="fw-bold">Patient Details</h3>
@@ -111,7 +116,7 @@
 					</label>
 				</div>
 				<!-- Accordion Card -->
-				<div class="row mb-5">
+				<div class="row">
 					<div class="col-lg-5 col-12 card-body p-0" id="left-content">
 						<div class="card">
 							<div class="card-header d-block">
@@ -225,8 +230,8 @@
 								<div class="tab-content">
 									<div id="navpills2-1" class="tab-pane active">
 										<div class="row">
-											<div class="card px-0">
-												<div class="card-body px-0">
+											<div class="card px-0 mb-0">
+												<div class="card-body px-0 pb-0">
 													<div class="basic-list-group">
 														<div class="row">
 															<div class="col-lg-4 col-xl-3">

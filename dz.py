@@ -8,7 +8,7 @@ dz_array = {
             "og_title":"Welly - Django Hospital Admin Dashboard Bootstrap Template",
             "og_description":"Welly is a clean-code, responsive Django Admin template that can be easily customized to fit the needs of various hospital, medical dashboard, health, doctor, and other businesses.",
             "og_image":"https://welly.dexignzone.com/django/social-image.png",
-            "title":"Welly - Django Hospital Admin Dashboard Bootstrap Template",
+            "title":"CDI Dashboard",
         },
         "global":{
             "css":[

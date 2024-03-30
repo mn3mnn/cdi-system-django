@@ -19,7 +19,7 @@
         </ul>
       </li> {% endcomment %}
       <li>
-        <a href="{% url 'welly:statistics' %}" class="ai-icon" aria-expanded="false">
+        <a href="{% url 'welly:index' %}" class="ai-icon" aria-expanded="false">
           <i class="fas fa-chart-column"></i>
           <span class="nav-text">Statistics</span>
         </a>
@@ -168,7 +168,7 @@
           </li>
         </ul>
       </li> {% endcomment %}
-      <li>
+      {% comment %} <li>
         <a class="has-arrow ai-icon" href="javascript:void(0);" aria-expanded="false">
           <i class="flaticon-381-layer-1"></i>
           <span class="nav-text">Pages</span>
@@ -176,7 +176,7 @@
         <ul aria-expanded="false">
           <li><a href="{% url 'welly:page-register' %}">Register</a></li>
           <li><a href="{% url 'welly:page-login' %}">Login</a></li>
-          {% comment %} <li>
+          <li>
             <a class="has-arrow" href="javascript:void(0);" aria-expanded="false">Error</a>
             <ul aria-expanded="false">
               <li><a href="{% url 'welly:page-error-400' %}">Error 400</a></li>
@@ -185,11 +185,11 @@
               <li><a href="{% url 'welly:page-error-500' %}">Error 500</a></li>
               <li><a href="{% url 'welly:page-error-503' %}">Error 503</a></li>
             </ul>
-          </li> {% endcomment %}
+          </li>
           <li><a href="{% url 'welly:page-lock-screen' %}">Lock Screen</a></li>
-          {% comment %} <li><a href="{% url 'welly:page-empty' %}">Empty Page</a></li> {% endcomment %}
+          <li><a href="{% url 'welly:page-empty' %}">Empty Page</a></li>
         </ul>
-      </li>
+      </li> {% endcomment %}
     </ul>
 
     {% comment %} <div class="copyright">
