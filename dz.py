@@ -36,10 +36,19 @@ dz_array = {
 							f"{folder_name}/vendor/chartist/css/chartist.min.css",
 							f"{folder_name}/vendor/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css",	
 						],
+                        "statistics": [
+						],
                         "work_list": [
 							f"{folder_name}/vendor/jqvmap/css/jqvmap.min.css",
 							f"{folder_name}/vendor/chartist/css/chartist.min.css",
 							f"{folder_name}/vendor/datatables/css/jquery.dataTables.min.css",
+						],
+                        "details": [
+                            f"{folder_name}/vendor/jqvmap/css/jqvmap.min.css",
+							f"{folder_name}/vendor/chartist/css/chartist.min.css",
+							f"{folder_name}/vendor/datatables/css/jquery.dataTables.min.css",
+						],
+                        "notifications": [
 						],
 						"patient": [
 							f"{folder_name}/vendor/jqvmap/css/jqvmap.min.css",
@@ -203,13 +212,20 @@ dz_array = {
 							f"{folder_name}/vendor/apexchart/apexchart.js",
 							f"{folder_name}/js/dashboard/dashboard-1.js",
 						],
+                        "statistics": [
+							f"{folder_name}/js/statistics.js",
+                            f"{folder_name}/vendor/chart-js/chart.bundle.min.js",
+							f"{folder_name}/js/plugins-init/chartjs-init.js",
+						],
                         "work_list": [
 							f"{folder_name}/vendor/chart-js/chart.bundle.min.js",
 							f"{folder_name}/vendor/datatables/js/jquery.dataTables.min.js",
 						],
-                        "statistics": [
-							f"{folder_name}/vendor/chart-js/chart.bundle.min.js",
-							f"{folder_name}/js/plugins-init/chartjs-init.js",
+                        "details": [
+                            f"{folder_name}/vendor/chart-js/chart.bundle.min.js",
+							f"{folder_name}/vendor/datatables/js/jquery.dataTables.min.js",
+						],
+                        "notifications": [
 						],
 						"patient": [
 							f"{folder_name}/vendor/chart-js/chart.bundle.min.js",

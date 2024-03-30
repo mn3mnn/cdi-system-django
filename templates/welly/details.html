@@ -1,0 +1,639 @@
+{% extends 'welly/elements/layouts/admin.html' %}
+{% load static %}
+
+{% block additional_css %}
+<style>
+	.switch {
+		position: relative;
+		display: inline-block;
+		width: 50px;
+		height: 27px;
+		border-radius: 27px;
+		box-shadow: inset 0px 0px 0px 1px #bdc3c7;
+		cursor: pointer;
+		transition: all .3s;
+	}
+
+	.switch input {
+		display: none;
+	}
+
+	.switch input:checked+div {
+		background-color: #007A64;
+		left: calc(100% - 25px);
+	}
+
+	.switch div {
+		position: absolute;
+		width: 25px;
+		height: 25px;
+		border-radius: 25px;
+		background-color: rgb(150, 150, 150);
+		top: 1px;
+		left: 0px;
+		transition: all .4s;
+	}
+
+	strong {
+		color: #000;
+	}
+
+	.badge {
+		padding: 2px 8px;
+		border-radius: 5px !important;
+	}
+
+	.accordion-body p:hover {
+		background-color: #f5f5f5;
+		cursor: pointer;
+	}
+
+	.copy-notification {
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		background-color: grey;
+		color: #333;
+		padding: 10px 20px;
+		border-radius: 5px;
+		box-shadow: 0 0 10px rgba(0,0,0,0.1);
+		z-index: 9999;
+		opacity: 0;
+		visibility: hidden;
+		transition: opacity 0.5s, visibility 0.5s;
+	}
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Content body start -->
+<div class="content-body">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-12">
+				<!-- Patient Details Card -->
+				<div class="row card-body bg-white mb-5">
+					<div class="row mb-3">
+						<div class="col-md-6 col-sm-12">
+							<h3 class="fw-bold">Patient Details</h3>
+						</div>
+						<div class="col-md-6 col-sm-12 text-end pe-0">
+							<button type="button" class="btn btn-primary">Edit Details</button>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-4 col-sm-6">
+							<p class="mb-1">Patient ID: <strong>123456</strong></p>
+							<p class="mb-1">Name: <strong>John Doe</strong></p>
+							<p class="mb-1">Encounter Date: <strong>26/02/2020</strong></p>
+							<p class="mb-1">Assignment Date: <strong>26/02/2020</strong></p>
+						</div>
+						<div class="col-md-4 col-sm-6">
+							<p class="mb-1">Open Queries: <strong>0</strong></p>
+							<p class="mb-1">System Priority: <strong><span class="badge badge-danger rounded">1</span></strong>
+							</p>
+							<p class="mb-1">Manual Priority: <strong><span class="text-success fw-bold">Med</span></strong></p>
+							<p class="mb-1">Flags: <i class="fa-solid fa-ban" style="color: red; font-size: 20px;"></i><i class="ms-2 fa-solid fa-shield-virus" style="color: red; font-size: 20px;"></i></p>
+						</div>
+						<div class="col-md-4 col-sm-12">
+							<p class="mb-1">Status: <strong>Re Rev</strong></p>
+							<p class="mb-1">Physician: <strong>Mary, Beth</strong></p>
+							<p class="mb-1">Specialty: <strong>Ostiopedic</strong></p>
+							<p class="mb-1">Facility: <strong>Rashid</strong></p>
+						</div>
+					</div>					
+				</div>
+				<div>
+					<label class="switch switch-checked" id="toggleAccordionVisibility">
+						<input type="checkbox" checked />
+						<div></div>
+					</label>
+				</div>
+				<!-- Accordion Card -->
+				<div class="row mb-5">
+					<div class="col-lg-5 col-12 card-body p-0" id="left-content">
+						<div class="card">
+							<div class="card-header d-block">
+								<h4 class="card-title">CDI INTELLIGENCE</h4>
+							</div>
+							<div class="card-body">
+								<div class="accordion accordion-primary-solid" id="accordion-one">
+									<div class="accordion-item">
+										<h2 class="accordion-header">
+											<button class="accordion-button collapsed" type="button"
+												data-bs-toggle="collapse" data-bs-target="#bordered_collapseOne">
+												85025 (BLOOD COUNT COMPLETE AUTO&AUTO DIFRNTL WBC)
+											</button>
+										</h2>
+										<div id="bordered_collapseOne" class="accordion-collapse collapse"
+											data-bs-parent="#accordion-one">
+											<div class="accordion-body">
+												<p class="mb-2 p-2">
+													Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, sequi
+													perspiciatis nostrum veritatis necessitatibus laudantium obcaecati ex
+													quam
+													tempore saepe qui quidem ullam impedit consequatur. Quae earum illum
+													soluta
+													obcaecati.
+												</p>
+												<p class="mb-2 p-2">
+													Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, sequi
+													perspiciatis nostrum veritatis necessitatibus laudantium obcaecati ex
+													quam
+													tempore saepe qui quidem ullam impedit consequatur. Quae earum illum
+													soluta
+													obcaecati.
+												</p>
+											</div>
+										</div>
+									</div>
+									<div class="accordion-item">
+										<h2 class="accordion-header">
+											<button class="accordion-button collapsed" type="button"
+												data-bs-toggle="collapse" data-bs-target="#bordered_collapseTwo">
+												86140 (C-REACTIVE PROTEIN)
+											</button>
+										</h2>
+										<div id="bordered_collapseTwo" class="accordion-collapse collapse"
+											data-bs-parent="#accordion-one">
+											<div class="accordion-body">
+												Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, sequi
+												perspiciatis nostrum veritatis necessitatibus laudantium obcaecati ex
+												quam
+												tempore saepe qui quidem ullam impedit consequatur. Quae earum illum
+												soluta
+												obcaecati.
+											</div>
+										</div>
+									</div>
+									<div class="accordion-item">
+										<h2 class="accordion-header">
+											<button class="accordion-button collapsed" type="button"
+												data-bs-toggle="collapse" data-bs-target="#bordered_collapseThree">
+												57880 (STREP A ASSAY W/OPTIC)
+											</button>
+										</h2>
+										<div id="bordered_collapseThree" class="accordion-collapse collapse"
+											data-bs-parent="#accordion-one">
+											<div class="accordion-body">
+												Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, sequi
+												perspiciatis nostrum veritatis necessitatibus laudantium obcaecati ex
+												quam
+												tempore saepe qui quidem ullam impedit consequatur. Quae earum illum
+												soluta
+												obcaecati.
+											</div>
+										</div>
+									</div>
+									<div class="accordion-item">
+										<h2 class="accordion-header">
+											<button class="accordion-button collapsed" type="button"
+												data-bs-toggle="collapse" data-bs-target="#bordered_collapseFour">
+												82306 (VITAMIN D 25 HYDROXY)
+											</button>
+										</h2>
+										<div id="bordered_collapseFour" class="accordion-collapse collapse"
+											data-bs-parent="#accordion-one">
+											<div class="accordion-body">
+												Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, sequi
+												perspiciatis nostrum veritatis necessitatibus laudantium obcaecati ex
+												quam
+												tempore saepe qui quidem ullam impedit consequatur. Quae earum illum
+												soluta
+												obcaecati.
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-7 col-12" id="right-content">
+						<div class="card">
+							<div class="card-body">
+								<ul class="nav nav-pills justify-content-center mb-4">
+									<li class=" nav-item">
+										<a href="#navpills2-1" class="nav-link active" data-bs-toggle="tab"
+											aria-expanded="false">Worksheet</a>
+									</li>
+									<li class="nav-item">
+										<a href="#navpills2-2" class="nav-link" data-bs-toggle="tab"
+											aria-expanded="false">Query</a>
+									</li>
+								</ul>
+								<div class="tab-content">
+									<div id="navpills2-1" class="tab-pane active">
+										<div class="row">
+											<div class="card px-0">
+												<div class="card-body px-0">
+													<div class="basic-list-group">
+														<div class="row">
+															<div class="col-lg-4 col-xl-3">
+																<div class="list-group mb-4 " id="list-tab"
+																	role="tablist"><a
+																		class="list-group-item list-group-item-action active p-2"
+																		id="list-home-list" data-bs-toggle="list"
+																		href="#list-home" role="tab">Current
+																		Encounter</a> <a
+																		class="list-group-item list-group-item-action p-2"
+																		id="list-profile-list" data-bs-toggle="list"
+																		href="#list-profile" role="tab">23-8-2015</a>
+																</div>
+															</div>
+															<div class="col-lg-8 col-xl-9">
+																<div class="tab-content" id="nav-tabContent">
+																	<div class="tab-pane fade show active"
+																		id="list-home">
+																		<div class="accordion accordion-primary-solid"
+																			id="accordion-two">
+																			<div class="accordion-item">
+																				<h2 class="accordion-header">
+																					<button
+																						class="accordion-button collapsed"
+																						type="button"
+																						data-bs-toggle="collapse"
+																						data-bs-target="#bordered_collapseFive">
+																						Notes
+																					</button>
+																				</h2>
+																				<div id="bordered_collapseFive"
+																					class="accordion-collapse collapse"
+																					data-bs-parent="#accordion-two">
+																					<div class="accordion-body">
+																						Lorem ipsum dolor sit amet
+																						consectetur adipisicing elit.
+																						Aliquam, sequi
+																						perspiciatis nostrum veritatis
+																						necessitatibus laudantium
+																						obcaecati ex
+																						quam
+																						tempore saepe qui quidem ullam
+																						impedit consequatur. Quae earum
+																						illum
+																						soluta
+																						obcaecati.
+																					</div>
+																				</div>
+																			</div>
+																			<div class="accordion-item">
+																				<h2 class="accordion-header">
+																					<button
+																						class="accordion-button collapsed"
+																						type="button"
+																						data-bs-toggle="collapse"
+																						data-bs-target="#bordered_collapseSix">
+																						Medications
+																					</button>
+																				</h2>
+																				<div id="bordered_collapseSix"
+																					class="accordion-collapse collapse"
+																					data-bs-parent="#accordion-two">
+																					<div class="accordion-body">
+																						Lorem ipsum dolor sit amet
+																						consectetur adipisicing elit.
+																						Aliquam, sequi
+																						perspiciatis nostrum veritatis
+																						necessitatibus laudantium
+																						obcaecati ex
+																						quam
+																						tempore saepe qui quidem ullam
+																						impedit consequatur. Quae earum
+																						illum
+																						soluta
+																						obcaecati.
+																					</div>
+																				</div>
+																			</div>
+																			<div class="accordion-item">
+																				<h2 class="accordion-header">
+																					<button
+																						class="accordion-button collapsed"
+																						type="button"
+																						data-bs-toggle="collapse"
+																						data-bs-target="#bordered_collapseSeven">
+																						Diagnosis
+																					</button>
+																				</h2>
+																				<div id="bordered_collapseSeven"
+																					class="accordion-collapse collapse"
+																					data-bs-parent="#accordion-two">
+																					<div
+																						class="accordion-body table-responsive">
+																						<table id="example5"
+																							class="display dataTablesCard table-bordered table-responsive-sm">
+																							<thead>
+																								<tr>
+																									<th scope="col">Code
+																									</th>
+																									<th scope="col">
+																										Condition</th>
+																									<th scope="col">
+																										Description</th>
+																									<th scope="col">
+																										Action</th>
+																								</tr>
+																							</thead>
+																							<tbody>
+																								<tr>
+																									<td>001</td>
+																									<td>Primary</td>
+																									<td>Lorem ipsum
+																										dolor sit amet.
+																									</td>
+																									<td>
+																										<button
+																											type="button"
+																											class="btn btn-sm btn-success">Accept</button>
+																										<button
+																											type="button"
+																											class="btn btn-sm btn-warning">Change</button>
+																									</td>
+																								</tr>
+																								<tr>
+																									<td>002</td>
+																									<td>Primary</td>
+																									<td>Lorem ipsum
+																										dolor sit amet.
+																									</td>
+																									<td>
+																										<button
+																											type="button"
+																											class="btn btn-sm btn-success">Accept</button>
+																										<button
+																											type="button"
+																											class="btn btn-sm btn-warning">Change</button>
+																									</td>
+																								</tr>
+																							</tbody>
+																						</table>
+																					</div>
+																				</div>
+																			</div>
+																			<div class="accordion-item">
+																				<h2 class="accordion-header">
+																					<button
+																						class="accordion-button collapsed"
+																						type="button"
+																						data-bs-toggle="collapse"
+																						data-bs-target="#bordered_collapseEight">
+																						Services
+																					</button>
+																				</h2>
+																				<div id="bordered_collapseEight"
+																					class="accordion-collapse collapse"
+																					data-bs-parent="#accordion-two">
+																					<div
+																						class="accordion-body table-responsive">
+																						<table id="example6"
+																							class="display dataTablesCard table-bordered table-responsive-sm">
+																							<thead>
+																								<tr>
+																									<th scope="col">Code
+																									</th>
+																									<th scope="col">Flag
+																									</th>
+																									<th scope="col">
+																										Description</th>
+																									<th scope="col">
+																										Justification
+																									</th>
+																									<th scope="col">Cost
+																									</th>
+																								</tr>
+																							</thead>
+																							<tbody>
+																								<tr>
+																									<td>101</td>
+																									<td>High</td>
+																									<td>Lorem ipsum
+																										dolor sit amet.
+																									</td>
+																									<td>Needed for
+																										condition A</td>
+																									<td>$50</td>
+																								</tr>
+																								<tr>
+																									<td>102</td>
+																									<td>Low</td>
+																									<td>Lorem ipsum
+																										dolor sit amet.
+																									</td>
+																									<td>Needed for
+																										condition B</td>
+																									<td>$50</td>
+																								</tr>
+																								<tr>
+																									<td colspan="4"
+																										class="text-center">
+																										Total Cost</td>
+																									<td>$100</td>
+																								</tr>
+																							</tbody>
+																						</table>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																	<div class="tab-pane fade" id="list-profile"
+																		role="tabpanel">
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div id="navpills2-2" class="tab-pane">
+										<div class="row">
+											<div>
+												<h4 class="mb-4">PREVIOUS QUERIES</h4>
+												<div class="accordion accordion-primary-solid" id="accordion-three">
+													<div class="accordion-item">
+														<h2 class="accordion-header">
+															<button class="accordion-button collapsed" type="button"
+																data-bs-toggle="collapse"
+																data-bs-target="#bordered_collapseNine">
+																Sent on (23-8-2015)
+															</button>
+														</h2>
+														<div id="bordered_collapseNine"
+															class="accordion-collapse collapse"
+															data-bs-parent="#accordion-three">
+															<div class="accordion-body">
+																Lorem ipsum dolor sit amet
+																consectetur adipisicing
+																elit. Aliquam, sequi
+																perspiciatis nostrum
+																veritatis necessitatibus
+																laudantium obcaecati ex
+																quam
+																tempore saepe qui quidem
+																ullam impedit consequatur.
+																Quae earum illum
+																soluta
+																obcaecati.
+															</div>
+														</div>
+													</div>
+													<div class="accordion-item">
+														<h2 class="accordion-header">
+															<button class="accordion-button collapsed" type="button"
+																data-bs-toggle="collapse"
+																data-bs-target="#bordered_collapseTen">
+																Recieved on (23-8-2015)
+															</button>
+														</h2>
+														<div id="bordered_collapseTen"
+															class="accordion-collapse collapse"
+															data-bs-parent="#accordion-three">
+															<div class="accordion-body">
+																Lorem ipsum dolor sit amet
+																consectetur adipisicing
+																elit. Aliquam, sequi
+																perspiciatis nostrum
+																veritatis necessitatibus
+																laudantium obcaecati ex
+																quam
+																tempore saepe qui quidem
+																ullam impedit consequatur.
+																Quae earum illum
+																soluta
+																obcaecati.
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div>
+												<div class="row mb-3">
+													<div class="col">
+														<select class="form-select h-100" id="templateSelect"
+															aria-label="Query template select">
+															<option selected>Select query template</option>
+															<option value="1">Template 1</option>
+															<option value="2">Template 2</option>
+														</select>
+													</div>
+													<div class="col">
+														<input type="text" class="form-control"
+															placeholder="Query Subject" aria-label="Query Subject">
+													</div>
+												</div>
+												<div class="mb-3">
+													<textarea class="form-control text-black" id="templateText" rows="3"
+														placeholder="Query comment" style="resize: none;"></textarea>
+												</div>
+												<div class="d-flex justify-content-center">
+													<button type="submit" class="btn btn-primary">Submit</button>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Content body end -->
+{% endblock %}
+
+{% block additional_js %}
+<script>
+	document.addEventListener('DOMContentLoaded', function () {
+		// Copy text to clipboard
+		function showNotification(message) {
+			const notification = document.createElement('div');
+			notification.classList.add('copy-notification');
+			notification.innerText = message;
+			document.body.appendChild(notification);
+			
+			requestAnimationFrame(() => {
+				notification.style.opacity = '1';
+				notification.style.visibility = 'visible';
+			});
+			
+			setTimeout(() => {
+				notification.style.opacity = '0';
+				notification.style.visibility = 'hidden';
+				notification.ontransitionend = () => document.body.removeChild(notification);
+			}, 2000);
+		}
+	
+		document.querySelectorAll('.accordion-body p').forEach(function(p) {
+			p.addEventListener('click', function() {
+				if (navigator.clipboard) {
+					navigator.clipboard.writeText(this.innerText).then(function() {
+						console.log('Text copied to clipboard');
+						showNotification('Text copied to clipboard');
+					}).catch(function(error) {
+						console.error('Error copying text: ', error);
+					});
+				} else {
+					console.error('Clipboard API not supported');
+				}
+			});
+		});
+
+		// Template select change event
+		document.getElementById('templateSelect').addEventListener('change', function () {
+			var textarea = document.getElementById('templateText');
+			switch (this.value) {
+				case '1':
+					textarea.value = 'This is Template 1.';
+					break;
+				case '2':
+					textarea.value = 'This is Template 2.';
+					break;
+				default:
+					textarea.value = '';
+			}
+		});
+
+		// Toggle accordion visibility
+		var toggleSwitch = document.getElementById('toggleAccordionVisibility');
+		var leftContent = document.getElementById('left-content');
+		var rightContent = document.getElementById('right-content');
+		toggleSwitch.addEventListener('change', function (event) {
+			var isChecked = event.target.checked;
+			if (isChecked) {
+				leftContent.classList.remove('d-none');
+				rightContent.classList.add('col-lg-7');
+			} else {
+				leftContent.classList.add('d-none');
+				rightContent.classList.remove('col-lg-7');
+			}
+		});
+
+		// Initialize DataTables
+		var table = $('#example5').DataTable({
+			searching: false,
+			paging: false,
+			select: true,
+			info: false,
+			lengthChange: false
+		});
+
+		var table2 = $('#example6').DataTable({
+			searching: false,
+			paging: false,
+			select: true,
+			info: false,
+			lengthChange: false
+		});
+
+		// DataTable row click event
+		$('#example tbody').on('click', 'tr', function () {
+			var data = table.row(this).data();
+		});
+	});
+</script>
+
+{% endblock %}
