@@ -1,7 +1,12 @@
-from django.shortcuts import render, redirect
+import json
+
+from django.shortcuts import render, redirect, HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User, Group
 from django.contrib.auth import authenticate, login, logout
+
+from welly.models import WorkList, Specialist
+
 
 @login_required(login_url='welly:page-login')
 def index(request):
@@ -19,12 +24,48 @@ def statistics(request):
 
 @login_required(login_url='welly:page-login')
 def work_list(request):
-    context={
-        "page_title":"Work List"
-    }
-    return render(request,'welly/work-list.html',context)
+    role = ''
+    work_list_items = []
+    all_specialists = None
 
-def details(request):
+    if request.user.groups.filter(name='manager').exists():
+        role = 'manager'
+        all_specialists = Specialist.objects.all()
+        work_list_items = WorkList.objects.all()
+    elif request.user.groups.filter(name='specialist').exists():
+        role = 'specialist'
+        work_list_items = WorkList.objects.filter(assigned_specialist=request.user.specialist)
+
+    context = {
+        "page_title": "Work List",
+        "role": role,
+        "work_list_items": work_list_items,
+        "specialists": all_specialists
+    }
+    return render(request,'welly/work-list.html', context)
+
+def assign(request):
+    if request.method == 'POST':
+        try:
+            data = json.loads(request.body)
+            work_list_ids = data['selectedItemsIds']
+            specialist_id = data['selectedSpecialistId']
+            work_list_ids = [int(i) for i in work_list_ids]
+            specialist_id = int(specialist_id)
+
+            work_lists = WorkList.objects.filter(work_list_id__in=work_list_ids)
+            specialist = Specialist.objects.get(specialist_id=specialist_id)
+            for w in work_lists:
+                w.assigned_specialist = specialist
+                w.save()
+
+            return HttpResponse('success', status=201)
+        except Exception as e:
+            print(e)
+
+    return HttpResponse('failed', status=500)
+
+def details(request, work_list_id):
     context={
         "page_title":"Details"
     }
@@ -526,7 +567,7 @@ def page_login(request):
         if user is not None:
             login(request,user)
             print('login successful')
-            return redirect('welly:index')
+            return redirect('welly:statistics')
 
     return render(request,'welly/pages/page-login.html')
 

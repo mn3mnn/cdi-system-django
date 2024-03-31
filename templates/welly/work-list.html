@@ -11,43 +11,49 @@
 <div class="content-body">
 	<!-- row -->
 	<div class="container-fluid">
-		<div class="align-items-center d-flex mb-sm-4 mb-3">
+    
+        <div class="align-items-center d-flex mb-sm-4 mb-3">
 			<div class="me-auto">
 				<h2 class="text-black font-w600">Work List</h2>
 			</div>
-			<div>
-				<a href="javascript:void(0)" class="btn btn-primary me-3" data-bs-toggle="modal"
-					data-bs-target="#addOrderModal">+ Assign</a>
-			</div>
+			{% if role == "manager" %}
+                <div>
+                    <a href="javascript:void(0)" class="btn btn-primary me-3" data-bs-toggle="modal"
+                        data-bs-target="#addOrderModal">+ Assign</a>
+                </div>
+            {% endif %}
 		</div>
 		<!-- Add Order -->
-		<div class="modal fade" id="addOrderModal">
-			<div class="modal-dialog modal-dialog-centered" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title">Assign To</h5>
-						<button type="button" class="btn-close" data-bs-dismiss="modal">
-						</button>
-					</div>
-					<div class="modal-body py-3">
-						<form>
-							<label for="single-select" class="form-label me-3 mb-0">Assign selected to</label>
-							<select id="single-select" class="w-50">
-								<option value="">Alabama</option>
-								<option value="">Wyoming</option>
-								<option value="">Alaska</option>
-								<option value="">Florida</option>
-							</select>
-						</form>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Close</button>
-						<button type="button" class="btn btn-primary">Assign</button>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="row">
+		{% if role == "manager" %}
+            <div class="modal fade" id="addOrderModal">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Assign To</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal">
+                            </button>
+                        </div>
+                        <div class="modal-body py-3">
+                            <form> 
+                                {% csrf_token %}
+                                <label for="single-select" class="form-label me-3 mb-0">Assign selected to</label>
+                                <select id="single-select" class="w-50">
+                                    {% for specialist in specialists %}
+                                        <option value="{{ specialist.specialist_id }}">{{ specialist.name }}</option>
+                                    {% endfor %}
+                                </select>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Close</button>
+                            <button type="button" onclick="assignItems()" class="btn btn-primary">Assign</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+		{% endif %}
+    
+        <div class="row">
 			<div class="col-xl-12">
 				<div class="table-responsive card-table">
 					<table id="example5" class="display dataTablesCard white-border table-responsive-xl">
@@ -61,6 +67,9 @@
 								</th>
 								<th>PID</th>
 								<th>PName</th>
+                                {% if role == "manager" %}
+                                    <th>Assigned To</th>
+                                {% endif %}
 								<th>Encounter</th>
 								<th>Assignment</th>
 								<th>Open Queries</th>
@@ -73,50 +82,30 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr data-href="{% url 'welly:details' %}">
-								<td>
-									<div class="form-check  custom-checkbox">
-										<input type="checkbox" class="form-check-input" id="customCheckBox2"
-											required="">
-										<label class="form-check-label" for="customCheckBox2"></label>
-									</div>
-								</td>
-								<td>123456</td>
-								<td>John Doe</td>
-								<td>26/02/2020</td>
-								<td>26/02/2020</td>
-								<td>0</td>
-								<td>
-									<span class="badge badge-danger">1</span>
-								</td>
-								<td class="text-success fw-bold">Med</td>
-								<td>Re Rev</td>
-								<td>Mary, Beth</td>
-								<td>Ostiopedic</td>
-								<td>Rashid</td>
-							</tr>
-							<tr data-href="{% url 'welly:details' %}">
-								<td>
-									<div class="form-check  custom-checkbox">
-										<input type="checkbox" class="form-check-input" id="customCheckBox3"
-											required="">
-										<label class="form-check-label" for="customCheckBox3"></label>
-									</div>
-								</td>
-								<td>456789</td>
-								<td>Lary John</td>
-								<td>26/02/2020</td>
-								<td>26/02/2020</td>
-								<td>3</td>
-								<td>
-									<span class="badge badge-success">2</span>
-								</td>
-								<td class="text-danger fw-bold">High</td>
-								<td>Re Rev</td>
-								<td>Mary, Beth</td>
-								<td>Ostiopedic</td>
-								<td>Rashid</td>
-							</tr>
+							{% for work in work_list_items %}
+                                <tr data-href="{% url 'welly:details' work.work_list_id %}" data-work_list_id={{ work.work_list_id }}>
+                                    <td>
+                                        <div class="form-check custom-checkbox">
+                                            <input type="checkbox" class="form-check-input" id="check1" required="">
+                                            <label class="form-check-label" for="check1"></label>
+                                        </div>
+                                    </td>
+                                    <td>{{ work.patient_id }}</td>
+                                    <td>{{ work.patient_name }}</td>
+                                    {% if role == "manager" %}
+                                        <td>{{ work.assigned_specialist }}</td>
+                                    {% endif %}
+                                    <td>{{ work.encounter_date }}</td>
+                                    <td>{{ work.assignment_date }}</td>
+                                    <td>{{ work.open_queries }}</td>
+                                    <td>{{ work.sys_priority }}</td>
+                                    <td>{{ work.manual_priority }}</td>
+                                    <td>{{ work.status }}</td>
+                                    <td>{{ work.physician }}</td>
+                                    <td>{{ work.speciality }}</td>
+                                    <td>{{ work.facility }}</td>
+                                </tr>
+                            {% endfor %}
 						</tbody>
 					</table>
 				</div>
@@ -152,5 +141,42 @@
 			});
 		})(jQuery);
 	});
+    
 </script>
+
+<script>
+    function assignItems() {
+        var selectedItems = [];
+        var checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+        checkboxes.forEach(function(checkbox) {
+            selectedItems.push(checkbox.closest('tr').dataset.work_list_id);
+        });
+
+        var selectedSpecialist = document.getElementById('single-select').value;
+        // Get CSRF token
+        var csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+
+        // Send AJAX POST request
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', '/assign/');
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.setRequestHeader('X-CSRFToken', csrfToken); // Include CSRF token in request headers
+        xhr.onload = function() {
+            if (xhr.status === 201) {
+                // Handle successful response
+                console.log(xhr.responseText);
+                window.alert('work assigned successfully');
+                document.location.reload();
+                
+            } else {
+                // Handle error response
+                console.error('Request failed. Status: ' + xhr.status);
+                window.alert('Request failed. Status: ' + xhr.status);
+            }
+        };
+        xhr.send(JSON.stringify({ 'selectedItemsIds': selectedItems, 'selectedSpecialistId': selectedSpecialist }));
+    }
+</script>
+    
+
 {% endblock %}
