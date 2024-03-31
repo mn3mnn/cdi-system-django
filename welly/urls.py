@@ -2,11 +2,14 @@ from django.urls import path
 from welly import welly_views
 app_name='welly'
 urlpatterns = [
-    path('',welly_views.statistics,name="index"),
-    path('dashboard/',welly_views.index,name="dashboard"),
-    path('index/',welly_views.statistics,name="index"),
+    path('',welly_views.statistics,name="statistics"),
+    path('index/',welly_views.index,name="index"),
+    path('statistics/',welly_views.statistics,name="statistics"),
     path('work-list/',welly_views.work_list,name="work-list"),
-    path('details/',welly_views.details,name="details"),
+
+    path('assign/',welly_views.assign,name="assign"),
+
+    path('details/<work_list_id>/',welly_views.details,name="details"),
     path('notifications/',welly_views.notifications,name="notifications"),
     path('patient',welly_views.patient,name="patient"),
     path('patient-details',welly_views.patient_details,name="patient-details"),
