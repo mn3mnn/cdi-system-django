@@ -1,4 +1,5 @@
 import json
+from datetime import datetime
 
 from django.shortcuts import render, redirect, HttpResponse
 from django.contrib.auth.decorators import login_required
@@ -57,6 +58,7 @@ def assign(request):
             specialist = Specialist.objects.get(specialist_id=specialist_id)
             for w in work_lists:
                 w.assigned_specialist = specialist
+                w.assignment_date = datetime.utcnow()
                 w.save()
 
             return HttpResponse('success', status=201)
@@ -66,8 +68,10 @@ def assign(request):
     return HttpResponse('failed', status=500)
 
 def details(request, work_list_id):
+    work_list = WorkList.objects.get(work_list_id=work_list_id)
     context={
-        "page_title":"Details"
+        "page_title":"Details",
+        "work_list": work_list
     }
     return render(request,'welly/details.html',context)
 

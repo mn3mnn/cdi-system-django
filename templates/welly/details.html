@@ -85,7 +85,7 @@
 				<div class="row card-body bg-white mb-5 details-container">
 					<div class="row mb-3">
 						<div class="col-md-6 col-sm-12">
-							<h3 class="fw-bold">Patient Details</h3>
+							<h3 class="fw-bold">Work-list Details</h3>
 						</div>
 						<div class="col-md-6 col-sm-12 text-end pe-0">
 							<button type="button" class="btn btn-primary">Edit Details</button>
@@ -93,23 +93,23 @@
 					</div>
 					<div class="row">
 						<div class="col-md-4 col-sm-6">
-							<p class="mb-1">Patient ID: <strong>123456</strong></p>
-							<p class="mb-1">Name: <strong>John Doe</strong></p>
-							<p class="mb-1">Encounter Date: <strong>26/02/2020</strong></p>
-							<p class="mb-1">Assignment Date: <strong>26/02/2020</strong></p>
+							<p class="mb-1">Patient ID: <strong>{{ work_list.patient_id }}</strong></p>
+							<p class="mb-1">Name: <strong>{{ work_list.patient_name }}</strong></p>
+							<p class="mb-1">Encounter Date: <strong>{{ work_list.encounter_date }}</strong></p>
+							<p class="mb-1">Assignment Date: <strong>{{ work_list.assignment_date }}</strong></p>
 						</div>
 						<div class="col-md-4 col-sm-6">
-							<p class="mb-1">Open Queries: <strong>0</strong></p>
-							<p class="mb-1">System Priority: <strong><span class="badge badge-danger rounded">1</span></strong>
+							<p class="mb-1">Open Queries: <strong>{{ work_list.open_queries }}</strong></p>
+							<p class="mb-1">System Priority: <strong><span class="badge badge-danger rounded">{{ work_list.sys_priority }}</span></strong>
 							</p>
-							<p class="mb-1">Manual Priority: <strong><span class="text-success fw-bold">Med</span></strong></p>
+							<p class="mb-1">Manual Priority: <strong><span class="text-success fw-bold">{{ work_list.manual_priority }}</span></strong></p>
 							<p class="mb-1">Flags: <i class="fa-solid fa-ban text-danger fs-20"></i><i class="ms-2 fa-solid fa-shield-virus text-danger fs-20"></i></p>
 						</div>
 						<div class="col-md-4 col-sm-12">
-							<p class="mb-1">Status: <strong>Re Rev</strong></p>
-							<p class="mb-1">Physician: <strong>Mary, Beth</strong></p>
-							<p class="mb-1">Specialty: <strong>Ostiopedic</strong></p>
-							<p class="mb-1">Facility: <strong>Rashid</strong></p>
+							<p class="mb-1">Status: <strong>{{ work_list.status }}</strong></p>
+							<p class="mb-1">Physician: <strong>{{ work_list.physician }}</strong></p>
+							<p class="mb-1">Specialty: <strong>{{ work_list.speciality }}</strong></p>
+							<p class="mb-1">Facility: <strong>{{ work_list.facility }}</strong></p>
 						</div>
 					</div>					
 				</div>
@@ -139,20 +139,10 @@
 											data-bs-parent="#accordion-one">
 											<div class="accordion-body">
 												<p class="mb-2 p-2">
-													Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, sequi
-													perspiciatis nostrum veritatis necessitatibus laudantium obcaecati ex
-													quam
-													tempore saepe qui quidem ullam impedit consequatur. Quae earum illum
-													soluta
-													obcaecati.
+													verify whether documentation supports medical necessity to evaluate overall health status and common presentations of  fever/pain/fatigue/weakness/giddiness, hemorrhagic conditions and acute/chronic infectious and inflammatory conditions for diagnosis and it includes measurement of Hgb and Hct, RBC count, WBC count with or without differential, and platelet count.
 												</p>
 												<p class="mb-2 p-2">
-													Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, sequi
-													perspiciatis nostrum veritatis necessitatibus laudantium obcaecati ex
-													quam
-													tempore saepe qui quidem ullam impedit consequatur. Quae earum illum
-													soluta
-													obcaecati.
+													verify documentation supports medical necessity to assess CBC counts with  presentation of any acute/chronic or acute on chronic Infections /inflammation with suspected type/organism/onset and duration/signs and symptoms/severity/complications/treatment modalities and response status.
 												</p>
 											</div>
 										</div>
@@ -168,12 +158,7 @@
 											data-bs-parent="#accordion-one">
 											<div class="accordion-body">
 												<p class="mb-2 p-2">
-													Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, sequi
-													perspiciatis nostrum veritatis necessitatibus laudantium obcaecati ex
-													quam
-													tempore saepe qui quidem ullam impedit consequatur. Quae earum illum
-													soluta
-													obcaecati.
+													verify documentation supports medical necessity to assess CBC counts with  presentation of any acute/chronic or acute on chronic Infections /inflammation with suspected type/organism/onset and duration/signs and symptoms/severity/complications/treatment modalities and response status.
 												</p>
 											</div>
 										</div>
@@ -189,12 +174,7 @@
 											data-bs-parent="#accordion-one">
 											<div class="accordion-body">
 												<p class="mb-2 p-2">
-													Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, sequi
-													perspiciatis nostrum veritatis necessitatibus laudantium obcaecati ex
-													quam
-													tempore saepe qui quidem ullam impedit consequatur. Quae earum illum
-													soluta
-													obcaecati.
+													verify documentation supports medical necessity to assess CBC counts with  presentation of any acute/chronic or acute on chronic Infections /inflammation with suspected type/organism/onset and duration/signs and symptoms/severity/complications/treatment modalities and response status.
 												</p>
 											</div>
 										</div>
@@ -210,12 +190,7 @@
 											data-bs-parent="#accordion-one">
 											<div class="accordion-body">
 												<p class="mb-2 p-2">
-													Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, sequi
-													perspiciatis nostrum veritatis necessitatibus laudantium obcaecati ex
-													quam
-													tempore saepe qui quidem ullam impedit consequatur. Quae earum illum
-													soluta
-													obcaecati.
+													verify documentation supports medical necessity to assess CBC counts with  presentation of any acute/chronic or acute on chronic Infections /inflammation with suspected type/organism/onset and duration/signs and symptoms/severity/complications/treatment modalities and response status.
 												</p>
 											</div>
 										</div>
@@ -276,18 +251,28 @@
 																					class="accordion-collapse collapse"
 																					data-bs-parent="#accordion-two">
 																					<div class="accordion-body">
-																						Lorem ipsum dolor sit amet
-																						consectetur adipisicing elit.
-																						Aliquam, sequi
-																						perspiciatis nostrum veritatis
-																						necessitatibus laudantium
-																						obcaecati ex
-																						quam
-																						tempore saepe qui quidem ullam
-																						impedit consequatur. Quae earum
-																						illum
-																						soluta
-																						obcaecati.
+																						Temperature: 102.2 degree Fahrenheit
+                                                                                        Pulse: 92 beats / min
+                                                                                        Blood pressure: 100/60 mmhg
+                                                                                        RR: 22 breaths per minute
+                                                                                        O2 sat: 97%
+                                                                                        General assessment: Conscious, oriented
+                                                                                        Throat RED++ Congested and inflamed ++
+                                                                                        Throat pustules ++
+                                                                                        Throat swab pus +++
+                                                                                        Nose- clear
+                                                                                        Left ear- Pain , discharge yellow watery
+                                                                                        Inflammation ++
+                                                                                        No localized lymphadenopathy
+                                                                                        Chest clear
+                                                                                        No Difficulty in breathing
+                                                                                        no SOB
+                                                                                        CVS- Normal heart sounds
+                                                                                        No murmurs
+                                                                                        No tenderness
+                                                                                        No rigidity
+                                                                                        Bowel fine
+                                                                                        No weaknes
 																					</div>
 																				</div>
 																			</div>
@@ -305,18 +290,9 @@
 																					class="accordion-collapse collapse"
 																					data-bs-parent="#accordion-two">
 																					<div class="accordion-body">
-																						Lorem ipsum dolor sit amet
-																						consectetur adipisicing elit.
-																						Aliquam, sequi
-																						perspiciatis nostrum veritatis
-																						necessitatibus laudantium
-																						obcaecati ex
-																						quam
-																						tempore saepe qui quidem ullam
-																						impedit consequatur. Quae earum
-																						illum
-																						soluta
-																						obcaecati.
+																						Amoxicillin / Clavulanic acid (Syrup) (625 mg Pediatric) Augmentin 
+                                                                                        Paracetamol (Suspension) (250 mg/5ml) Panadol 
+                                                                                        Ibuprofen (Syrup) (100 mg/5ml) Brufen
 																					</div>
 																				</div>
 																			</div>
@@ -351,10 +327,9 @@
 																							</thead>
 																							<tbody>
 																								<tr>
-																									<td>001</td>
+																									<td>J03.00</td>
 																									<td>Primary</td>
-																									<td>Lorem ipsum
-																										dolor sit amet.
+																									<td>Acute streptococcal tonsillitis, unspecified
 																									</td>
 																									<td>
 																										<button
@@ -366,10 +341,9 @@
 																									</td>
 																								</tr>
 																								<tr>
-																									<td>002</td>
+																									<td>H65.02</td>
 																									<td>Primary</td>
-																									<td>Lorem ipsum
-																										dolor sit amet.
+																									<td>Acute serous otitis media, left ear
 																									</td>
 																									<td>
 																										<button
@@ -419,23 +393,19 @@
 																							</thead>
 																							<tbody>
 																								<tr>
-																									<td>101</td>
+																									<td>86140</td>
 																									<td class="text-center"><i class="fa-solid fa-ban text-danger fs-20"></i></td>
-																									<td>Lorem ipsum
-																										dolor sit amet.
+																									<td>High Sensitivity C-Reactive Protein (hsCRP) Testing
 																									</td>
-																									<td>Needed for
-																										condition A</td>
+																									<td></td>
 																									<td>$50</td>
 																								</tr>
 																								<tr>
-																									<td>102</td>
+																									<td>85025</td>
 																									<td class="text-center"><i class="fa-solid fa-shield-virus text-danger fs-20"></i></td>
-																									<td>Lorem ipsum
-																										dolor sit amet.
+																									<td>Blood count; complete (CBC), automated (Hgb, Hct, RBC, WBC and platelet count) and automated differential WBC count
 																									</td>
-																									<td>Needed for
-																										condition B</td>
+																									<td></td>
 																									<td>$50</td>
 																								</tr>
 																								<tr>

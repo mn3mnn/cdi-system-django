@@ -11,7 +11,7 @@
 <div class="content-body">
 	<!-- row -->
 	<div class="container-fluid">
-    
+
         <div class="align-items-center d-flex mb-sm-4 mb-3">
 			<div class="me-auto">
 				<h2 class="text-black font-w600">Work List</h2>
@@ -34,7 +34,7 @@
                             </button>
                         </div>
                         <div class="modal-body py-3">
-                            <form> 
+                            <form>
                                 {% csrf_token %}
                                 <label for="single-select" class="form-label me-3 mb-0">Assign selected to</label>
                                 <select id="single-select" class="w-50">
@@ -52,7 +52,7 @@
                 </div>
             </div>
 		{% endif %}
-    
+
         <div class="row">
 			<div class="col-xl-12">
 				<div class="table-responsive card-table">
@@ -120,8 +120,9 @@
 {% block additional_js %}
 <script>
 	$(document).ready(function () {
-		$("#example5 tbody tr").on("click", function () {
-			var href = $(this).data("href");
+		$("#example5 tbody tr :not(:nth-child(1))").on("click", function () {
+            console.log('clicked');
+			var href = $(this).parent().data("href");
 			if (href) {
 				window.location.href = href;
 			}
@@ -141,7 +142,7 @@
 			});
 		})(jQuery);
 	});
-    
+
 </script>
 
 <script>
@@ -167,7 +168,7 @@
                 console.log(xhr.responseText);
                 window.alert('work assigned successfully');
                 document.location.reload();
-                
+
             } else {
                 // Handle error response
                 console.error('Request failed. Status: ' + xhr.status);
@@ -177,6 +178,6 @@
         xhr.send(JSON.stringify({ 'selectedItemsIds': selectedItems, 'selectedSpecialistId': selectedSpecialist }));
     }
 </script>
-    
+
 
 {% endblock %}
