@@ -9501,7 +9501,7 @@ div, span, ol, ul {
     transform: scale(1); } }
 
 .footer {
-  padding-left: 14rem;
+  padding-left: 12rem;
   background-color: #F9F9F9; }
   @media only screen and (max-width: 1400px) {
     .footer {
@@ -9531,7 +9531,7 @@ div, span, ol, ul {
 
 .nav-header {
   height: 7.5rem;
-  width: 14rem;
+  width: 12rem;
   display: inline-block;
   text-align: left;
   position: absolute;
@@ -9710,7 +9710,7 @@ div, span, ol, ul {
   padding: 0rem;
   background-color: #F9F9F9;
   z-index: 4;
-  padding-left: 14rem;
+  padding-left: 12rem;
   transition: all .2s ease; }
   @media only screen and (max-width: 1400px) {
     .header {
@@ -12098,7 +12098,7 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
   top: 0.625rem; }
 
 .content-body {
-  margin-left: 14rem;
+  margin-left: 12rem;
   z-index: 0;
   transition: all .2s ease; }
   @media only screen and (min-width: 1200px) and (max-width: 1400px) {
@@ -12263,7 +12263,7 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
     transform: rotate(0); } }
 
 .deznav {
-  width: 14rem;
+  width: 12rem;
   padding-bottom: 0;
   height: 100%;
   position: absolute;
@@ -12277,7 +12277,7 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
       padding-top: 80px; } }
   @media only screen and (max-width: 767px) {
     .deznav {
-      width: 18rem; } }
+      width: 12rem; } }
   .deznav .deznav-scroll {
     position: relative;
     height: 100%;
@@ -12643,14 +12643,14 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
   padding: 0 0 0 0; }
   [data-sidebar-style="full"][data-layout="vertical"] .deznav .metismenu > li > a {
     font-size: 16px;
-    padding: 15px 20px 15px 50px;
+    padding: 15px 20px;
     -webkit-transition: all 0.5s;
     -ms-transition: all 0.5s;
     transition: all 0.5s;
     position: relative; }
     @media only screen and (max-width: 1400px) {
       [data-sidebar-style="full"][data-layout="vertical"] .deznav .metismenu > li > a {
-        padding: 15px 25px;
+        padding: 15px 20px;
         font-size: 16px; } }
     [data-sidebar-style="full"][data-layout="vertical"] .deznav .metismenu > li > a:before {
       position: absolute;
