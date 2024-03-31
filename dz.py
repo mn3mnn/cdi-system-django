@@ -33,10 +33,11 @@ dz_array = {
                 "welly_views":{
                     "css":{
                         "index": [
-							f"{folder_name}/vendor/chartist/css/chartist.min.css",
-							f"{folder_name}/vendor/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css",	
 						],
                         "statistics": [
+                            # this changed with the index
+							f"{folder_name}/vendor/chartist/css/chartist.min.css",
+							f"{folder_name}/vendor/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css",	
 						],
                         "work_list": [
 							f"{folder_name}/vendor/jqvmap/css/jqvmap.min.css",
@@ -205,17 +206,17 @@ dz_array = {
                     },
                     "js":{
 						"index": [
+                            f"{folder_name}/js/statistics.js",
+                            f"{folder_name}/vendor/chart-js/chart.bundle.min.js",
+							f"{folder_name}/js/plugins-init/chartjs-init.js",
+						],
+                        "statistics": [
 							f"{folder_name}/vendor/chart-js/chart.bundle.min.js",
 							f"{folder_name}/vendor/bootstrap-datetimepicker/js/moment.js",
 							f"{folder_name}/vendor/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js",
 							f"{folder_name}/vendor/peity/jquery.peity.min.js",
 							f"{folder_name}/vendor/apexchart/apexchart.js",
 							f"{folder_name}/js/dashboard/dashboard-1.js",
-						],
-                        "statistics": [
-							f"{folder_name}/js/statistics.js",
-                            f"{folder_name}/vendor/chart-js/chart.bundle.min.js",
-							f"{folder_name}/js/plugins-init/chartjs-init.js",
 						],
                         "work_list": [
 							f"{folder_name}/vendor/chart-js/chart.bundle.min.js",
