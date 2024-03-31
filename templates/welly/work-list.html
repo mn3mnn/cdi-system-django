@@ -127,6 +127,7 @@
 				window.location.href = href;
 			}
 		});
+
 		(function ($) {
 			var table = $('#example5').DataTable({
 				searching: true,
@@ -136,10 +137,16 @@
 				lengthChange: true
 
 			});
-			$('#example tbody').on('click', 'tr', function () {
-				var data = table.row(this).data();
-				console.log(data);
-			});
+			{#$('#example5 tbody').on('click', 'tr', function () {#}
+			{#	var data = table.row(this).data();#}
+			{#	var href = $(this).data("href");#}
+			{#	if (href) {#}
+			{#		window.location.href = href;#}
+			{#	}#}
+			{#);#}
+			{#$('#example5 tbody').on('click', 'input[type="checkbox"]', function (event) {#}
+			{#	event.stopPropagation();#}
+			{#);#}
 		})(jQuery);
 	});
 
