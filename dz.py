@@ -4,10 +4,10 @@ folder_name = "welly"
 dz_array = {
         "public":{
             "favicon":f"{folder_name}/images/favicon.png",
-            "description":"Welly is a clean-code, responsive Django Admin template that can be easily customized to fit the needs of various hospital, medical dashboard, health, doctor, and other businesses.",
-            "og_title":"Welly - Django Hospital Admin Dashboard Bootstrap Template",
-            "og_description":"Welly is a clean-code, responsive Django Admin template that can be easily customized to fit the needs of various hospital, medical dashboard, health, doctor, and other businesses.",
-            "og_image":"https://welly.dexignzone.com/django/social-image.png",
+            "description":"CDI dashboard",
+            "og_title":"CDI dashboard",
+            "og_description":"CDI dashboard",
+            "og_image":f"{folder_name}/images/og_img.png",
             "title":"CDI Dashboard",
         },
         "global":{
